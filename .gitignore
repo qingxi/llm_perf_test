@@ -1,0 +1,64 @@
+# --- Secrets & environment ---
+.env
+.env.*
+!.env.example
+
+# --- Python caches & bytecode ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+.python-version
+
+# --- Build & packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Testing & coverage ---
+.pytest_cache/
+.coverage*
+htmlcov/
+.tox/
+.hypothesis/
+
+# --- Linters / type checkers ---
+.mypy_cache/
+.pyre/
+.pytype/
+.ruff_cache/
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+logs/
+*.log
+
+# --- Run outputs (analysis & results) ---
+analysis/
+analysis_*/
+results/
+# If results are generated in timestamped folders at repo root
+analysis_20*/
+
+# --- Containers / Docker (optional) ---
+.docker/
+*.pid
+
+# --- Misc ---
+*.bak
+*.tmp
+**/.ipynb_checkpoints/

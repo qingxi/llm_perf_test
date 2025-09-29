@@ -1,0 +1,64 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+  "name": "LLM Perf Test Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "features": {
+    "ghcr.io/hspaans/devcontainer-features/pytest:1": {},
+    "ghcr.io/devcontainers-extra/features/pipenv:2": {},
+    "ghcr.io/devcontainers-extra/features/pylint:2": {}
+  },
+  "runArgs": [
+    "--add-host=host.docker.internal:host-gateway",
+    "--env-file",
+    ".devcontainer/devcontainer.env",
+    "--network",
+    "host"
+  ],
+  // Features to add to the dev container. More info: https://containers.dev/features.
+  // "features": {},
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "pip install -r /workspace/requirements.txt",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bierner.markdown-mermaid",
+        "charliermarsh.ruff",
+        "eamodio.gitlens",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "ms-python.debugpy",
+        "ms-python.pylint",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.python-test-adapter",
+        "ms-toolsai.jupyter",
+        "nickmillerdev.pytest-fixtures",
+        "stkb.rewrap",
+        "usernamehw.errorlens",
+        "vivaxy.vscode-conventional-commits",
+        "visualstudioexptteam.vscodeintellicode"
+      ],
+      "settings": {
+        "python.analysis.typeCheckingMode": "basic",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.linting.flake8Enabled": false,
+        "python.linting.mypyEnabled": false,
+        "python.linting.pylintArgs": ["--load-plugins", "pylint_flask"]
+      }
+    }
+  },
+
+  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+  "remoteUser": "root"
+}
